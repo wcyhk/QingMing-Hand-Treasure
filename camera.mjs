@@ -193,7 +193,9 @@ $('applyPerformance').onclick=()=>{
 setDiagnostics(showDiagnostics);
 $('cameraStart').onclick=()=>start();
 $('cameraStop').onclick=()=>{stop();status('已關閉鏡頭 · 可用滑鼠試玩','idle');};
-$('mouseMode').onclick=()=>{$('welcome').hidden=true;$('cameraPanel').hidden=true;status('滑鼠同手勢都可操作，移動滑鼠即可接手',mode==='hand'?'tracking':'idle');};
+const enterMouseMode=()=>{$('welcome').hidden=true;$('cameraPanel').hidden=true;status('滑鼠同手勢都可操作，移動滑鼠即可接手',mode==='hand'?'tracking':'idle');};
+$('mouseMode').onclick=enterMouseMode;
+$('welcomeMouse').onclick=enterMouseMode;
 $('welcomeCamera').onclick=()=>{if(mode==='hand'){$('welcome').hidden=true;$('cameraPanel').hidden=true;return;}start();};
 $('quickCamera').onclick=()=>{$('cameraPanel').hidden=false;start();};
 $('cameraClose').onclick=()=>{$('cameraPanel').hidden=true;};
